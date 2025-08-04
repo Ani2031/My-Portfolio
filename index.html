@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/public/webLogo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShopNow</title>
+    <link href="./src/index.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Pacifico&display=swap" rel="stylesheet" />
+
+    <!-- Prevent theme flash -->
+    <script>
+      (function () {
+        const theme = localStorage.getItem('theme') || 'theme1';
+        document.documentElement.classList.remove('theme1', 'theme2', 'theme3');
+        document.documentElement.classList.add(theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
