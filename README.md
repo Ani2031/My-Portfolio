@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -67,3 +68,7 @@ export default tseslint.config([
   },
 ])
 ```
+=======
+# ShopNow-theme-switcher-
+Built a React-based web application with a theme switcher. The switcher should allow users to select from three distinct themes (Theme 1, Theme 2, Theme 3) using a dropdown in the header. Each theme should not only change colors, but also alter structure, fonts, spacing, and layout.
+>>>>>>> e77284bf65c66cc17e2e16a8fda80b316b628e3a
