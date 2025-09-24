@@ -2,17 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme 1: Light + Minimal */
-.theme1 {
-  @apply bg-white text-gray-900 font-sans;
-}
-
-/* Theme 2: Dark + Serif + Sidebar style */
-.theme2 {
-  @apply bg-gray-900 text-white font-serif;
-}
-
-/* Theme 3: Colorful + Grid + Playful font */
-.theme3 {
-  @apply bg-gradient-to-br from-pink-400 to-yellow-400 text-white font-pacifico;
+/* Base style */
+body {
+  @apply font-sans bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text;
 }

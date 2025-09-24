@@ -1,172 +1,169 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useTheme } from "../context/ThemeContext";
+import { Code, Layout, Github, Linkedin, Mail } from "lucide-react";
+import {
+  SiReact,
+  SiNextdotjs,
+  SiRedux,
+  SiTypescript,
+  SiTailwindcss,
+  SiMui,
+  SiBootstrap,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+} from "react-icons/si";
+import { motion } from "framer-motion";
 
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  image: string;
-  description: string;
-}
-
-const Home = () => {
+const Home: React.FC = () => {
   const { theme } = useTheme();
-  const [products, setProducts] = useState<Product[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-        setLoading(false);
-      })
-      .catch((err) => console.error(err));
-  }, []);
+  const baseStyles =
+    "transition-all duration-500 ease-in-out min-h-screen w-full px-6 pt-28 pb-10";
 
-  // Theme-specific styles
-  const baseStyles = `transition-all duration-500 ease-in-out min-h-screen w-full px-4 pt-28 pb-10`;
-
-  const themeStyles = {
-    theme1: `bg-white text-gray-900 font-sans`,
-    theme2: `bg-gray-900 text-white font-serif`,
-    theme3: `bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 text-gray-800 font-pacifico`,
-  };
+  const skills = [
+    { name: "React", icon: <SiReact className="text-sky-500" /> },
+    // {
+    //   name: "Next.js",
+    //   icon: <SiNextdotjs className="text-gray-900 dark:text-white" />,
+    // },
+    { name: "Redux", icon: <SiRedux className="text-purple-600" /> },
+    { name: "TypeScript", icon: <SiTypescript className="text-blue-600" /> },
+    { name: "Tailwind", icon: <SiTailwindcss className="text-sky-400" /> },
+    { name: "MUI", icon: <SiMui className="text-blue-500" /> },
+    { name: "Bootstrap", icon: <SiBootstrap className="text-violet-600" /> },
+    { name: "JavaScript", icon: <SiJavascript className="text-yellow-500" /> },
+    { name: "HTML5", icon: <SiHtml5 className="text-orange-600" /> },
+    { name: "CSS3", icon: <SiCss3 className="text-blue-500" /> },
+  ];
 
   return (
-    <main className={`${baseStyles} ${themeStyles[theme]}`}>
+    <main
+      className={`${baseStyles} ${
+        theme === "dark"
+          ? "bg-gray-900 text-white font-sans"
+          : "bg-white text-gray-900 font-sans"
+      }`}
+    >
       {/* Hero Section */}
-      <section
-        className={`${
-          theme === "theme3" ? "text-left pl-6" : "text-center"
-        } max-w-6xl mx-auto mb-16`}
-      >
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-          Discover the Best Deals Online
-        </h1>
-        <p
-          className={`${
-            theme === "theme2" ? "text-gray-300" : "text-gray-600"
-          } text-lg md:text-xl mb-6 max-w-3xl ${
-            theme === "theme3" ? "text-left" : "mx-auto text-center"
-          }`}
+      <section className="max-w-6xl mx-auto text-center mb-20">
+        <motion.h1
+          className="text-4xl md:text-6xl font-extrabold mb-4"
+          initial={{ y: -50, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 }}
         >
-          Your one-stop destination for quality products. Enjoy seamless
-          shopping with our responsive and modern UI.
-        </p>
-        <div className={`${theme === "theme3" ? "text-left" : "text-center"}`}>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-xl shadow-lg transition">
-            Start Shopping
-          </button>
-        </div>
+          Hi, I’m <span className="text-blue-600">Anish</span>
+        </motion.h1>
+        <motion.p
+          className="text-lg md:text-xl mb-6 max-w-2xl mx-auto"
+          initial={{ y: 30, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          A passionate <b>Reactjs Developer</b> skilled in{" "}
+          <b>React, Redux, TypeScript</b>, and modern UI libraries like{" "}
+          <b>Tailwind, Material UI, Bootstrap</b>. I build scalable web apps
+          with beautiful UI and strong backend logic.
+        </motion.p>
       </section>
 
-      {/* Features Section */}
-      <section
-        className={`max-w-6xl mx-auto grid gap-8 ${
-          theme === "theme3"
-            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-2"
-            : "sm:grid-cols-2 lg:grid-cols-3"
-        } mb-20`}
-      >
-        {[
-          {
-            title: "Fast Delivery",
-            desc: "We ensure quick and safe delivery of all your products, no matter where you are.",
-          },
-          {
-            title: "Best Prices",
-            desc: "Get top-quality items at unbeatable prices. We make shopping affordable.",
-          },
-          {
-            title: "24/7 Support",
-            desc: "Have a question? Our support team is here to help you anytime.",
-          },
-        ].map((feat, i) => (
-          <div
-            key={i}
-            className={`rounded-2xl p-6 transition-all duration-500 shadow-lg ${
-              theme === "theme1"
-                ? "bg-white"
-                : theme === "theme2"
-                ? "bg-gray-800 text-white"
-                : "bg-white border-2 border-dashed border-purple-300"
-            }`}
-          >
-            <h3 className="text-xl font-bold mb-2">{feat.title}</h3>
-            <p
-              className={`${
-                theme === "theme2" ? "text-gray-300" : "text-gray-600"
-              }`}
+      {/* Skills Section */}
+      <section className="max-w-6xl mx-auto mb-20">
+        <h2 className="text-3xl font-bold text-center mb-10">My Skills</h2>
+        <div className="flex flex-wrap justify-center gap-4">
+          {skills.map((skill, i) => (
+            <motion.div
+              key={i}
+              whileHover={{ scale: 1.1 }}
+              className={`flex items-center gap-2 px-4 py-2 rounded-xl shadow-md cursor-default transition
+              ${
+                theme === "dark"
+                  ? "bg-gray-800 text-white"
+                  : "bg-white text-gray-900"
+              }
+            `}
             >
-              {feat.desc}
-            </p>
-          </div>
-        ))}
-      </section>
-
-      {/* Product Listing */}
-      <section className="max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          Featured Products
-        </h2>
-        <div
-          className={`grid gap-6 ${
-            theme === "theme3"
-              ? "grid-cols-2 sm:grid-cols-3 lg:grid-cols-4"
-              : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-          }`}
-        >
-          {loading ? (
-            <p className="col-span-full text-center">Loading products...</p>
-          ) : (
-            products.map((product) => (
-              <div
-                key={product.id}
-                className={`overflow-hidden rounded-2xl shadow-md border transition-all duration-300 ${
-                  theme === "theme2"
-                    ? "bg-gray-800 text-white border-gray-700"
-                    : theme === "theme3"
-                    ? "bg-white border-4 border-blue-200 rotate-1 hover:rotate-0"
-                    : "bg-white"
-                }`}
-              >
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="h-56 w-full object-contain bg-gray-100 p-4"
-                />
-                <div className="p-5 flex flex-col justify-between h-[250px]">
-                  <h3 className="text-lg font-semibold mb-2">
-                    {product.title.slice(0, 40)}...
-                  </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
-                    {product.description.slice(0, 100)}...
-                  </p>
-                  <div className="mt-auto">
-                    <p className="text-blue-600 font-bold text-lg mb-2">
-                      ${product.price}
-                    </p>
-                    <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition">
-                      Add to Cart
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))
-          )}
+              <span className="text-xl">{skill.icon}</span>
+              <span className="font-medium">{skill.name}</span>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      {/* Footer or CTA */}
-      <section className="mt-20 text-center">
-        <h3 className="text-2xl font-bold mb-2">Ready to Explore More?</h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Sign up today and get access to exclusive offers and updates.
+      {/* Projects Section */}
+      <section id="projects" className="max-w-6xl mx-auto mb-20">
+        <h2 className="text-3xl font-bold text-center mb-10">
+          Featured Projects
+        </h2>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Chat App",
+              desc: "Real-time group chat app with Socket.IO, media support, and React.js.",
+              tech: "React.js, Socket.IO",
+            },
+            {
+              title: "E-Commerce Store",
+              desc: "Modern MERN e-commerce app with product listing, cart, buy & JWT auth.",
+              tech: "MERN, Redux, Mui",
+            },
+            {
+              title: "Theme Switcher",
+              desc: "Website with multi-theme switcher using Localstorage and smooth animations.",
+              tech: "React, Tailwind, Framer Motion",
+            },
+          ].map((proj, i) => (
+            <motion.div
+              key={i}
+              className={`rounded-xl p-6 shadow-lg transition ${
+                theme === "dark"
+                  ? "bg-gray-800 text-white"
+                  : "bg-white text-gray-900"
+              }`}
+              whileHover={{ scale: 1.05 }}
+            >
+              <h3 className="text-xl font-bold mb-2">{proj.title}</h3>
+              <p className="mb-2">{proj.desc}</p>
+              <p className="text-sm text-blue-600">{proj.tech}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-6">Let’s Connect</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-6">
+          Interested in working together or just want to chat? Feel free to
+          reach out.
         </p>
-        <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-3 rounded-lg transition">
-          Join Now
-        </button>
+        <div className="flex justify-center gap-6">
+          <a
+            href="https://github.com/Ani2031"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:scale-110 transition"
+          >
+            <Github />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/anish-prajapati-9a794b218/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:scale-110 transition"
+          >
+            <Linkedin />
+          </a>
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=anishprajapati731@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 hover:scale-110 transition"
+          >
+            <Mail />
+          </a>
+        </div>
       </section>
     </main>
   );
