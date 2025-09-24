@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sun, Moon } from "lucide-react";
-import webLogo from "../assets/webLogo.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";

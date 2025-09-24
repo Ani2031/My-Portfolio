@@ -1,9 +1,8 @@
 import React from "react";
 import { useTheme } from "../context/ThemeContext";
-import { Code, Layout, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import {
   SiReact,
-  SiNextdotjs,
   SiRedux,
   SiTypescript,
   SiTailwindcss,
