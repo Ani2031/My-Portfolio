@@ -60,7 +60,7 @@ const Home: React.FC = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          A passionate <b>Reactjs Developer</b> skilled in{" "}
+          A passionate <b>MERN Stack Developer</b> skilled in{" "}
           <b>React, Redux, TypeScript</b>, and modern UI libraries like{" "}
           <b>Tailwind, Material UI, Bootstrap</b>. I build scalable web apps
           with beautiful UI and strong backend logic.
