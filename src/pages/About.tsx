@@ -34,7 +34,7 @@ const About = () => {
           <br />
           My expertise lies in{" "}
           <b>
-            React.js, Next.js (basic), Redux, TypeScript, Tailwind CSS, MUI,
+            React.js, Next.js, Redux, TypeScript, Tailwind CSS, MUI,
             Bootstrap
           </b>
           , along with building{" "}
