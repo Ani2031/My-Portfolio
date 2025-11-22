@@ -28,7 +28,7 @@ const About = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Hi, I’m <b>Anish Prajapati</b> a passionate frontend developer with a{" "}
+          Hi, I’m <b>Anish Prajapati</b> a passionate developer with a{" "}
           <b>Bachelor’s degree in Information Technology</b> (CGPA: <b>8.4</b>).
           <br />
           <br />
