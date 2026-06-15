@@ -1,5 +1,5 @@
 import React from "react";
-import { Github, Linkedin, Mail, ArrowRight, Sparkles, MessageSquare, ShoppingCart, Layers } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowRight, Sparkles, } from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   SiReact,
