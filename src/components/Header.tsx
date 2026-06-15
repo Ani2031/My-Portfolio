@@ -17,9 +17,9 @@ const Header = () => {
 
   const navLinks = [
     { label: "Home", to: "/" },
-    // { label: "Projects", to: "/projects" },
-    { label: "Skills", to: "/skills" },
     { label: "About", to: "/about" },
+    // { label: "Projects", to: "/projects" },
+    { label: "Experience", to: "/experience" },
     { label: "Contact", to: "/contact" },
   ];
 
@@ -32,92 +32,118 @@ const Header = () => {
   return (
     <>
       <header
-        className="fixed top-0 left-0 w-full flex justify-between items-center px-6 py-4 z-50 
-        border-b bg-white text-gray-800 dark:bg-gray-900 dark:text-white dark:border-gray-700 
-        border-gray-200 transition-colors"
+        className="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-5xl z-50 
+        glass-panel rounded-full px-6 py-2.5 flex justify-between items-center 
+        transition-all duration-300"
       >
         {/* Logo */}
         <h1
-          className="flex items-center gap-2 text-2xl font-extrabold tracking-tight cursor-pointer"
+          className="flex items-center gap-2 text-xl font-bold tracking-tight cursor-pointer group"
           onClick={handleNavigate}
         >
-          <span className="drop-shadow-sm">My Portfolio</span>
+          <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent font-extrabold transition-all group-hover:opacity-85">
+            Anish.dev
+          </span>
         </h1>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex gap-4 items-center text-base font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`px-3 py-1 rounded-md transition-colors duration-300 ${
-                isActive(link.to)
-                  ? "bg-gray-200 dark:bg-gray-700"
-                  : "hover:bg-gray-100 dark:hover:bg-gray-800"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+        <div className="hidden md:flex gap-1 items-center text-sm font-medium">
+          <nav className="flex gap-1 items-center mr-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className={`relative px-4 py-1.5 rounded-full transition-colors duration-300 ${isActive(link.to)
+                    ? "text-blue-600 dark:text-blue-400"
+                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                  }`}
+              >
+                <span className="relative z-10">{link.label}</span>
+                {isActive(link.to) && (
+                  <motion.span
+                    layoutId="active-pill"
+                    className="absolute inset-0 bg-slate-900/[0.04] dark:bg-white/[0.08] rounded-full"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="h-4 w-[1px] bg-slate-200 dark:bg-slate-800 mx-2" />
 
           {/* Dark Mode Toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:scale-110 transition-transform 
-              bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
+            className="p-2 rounded-full hover:scale-105 hover:bg-slate-100 dark:hover:bg-slate-900 transition-all text-slate-600 dark:text-slate-300 active:scale-95"
+            aria-label="Toggle Theme"
           >
-            {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
+            <motion.div
+              initial={false}
+              animate={{ rotate: theme === "dark" ? 180 : 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            >
+              {theme === "dark" ? <Sun size={18} className="text-yellow-500" /> : <Moon size={18} />}
+            </motion.div>
           </button>
         </div>
 
-        {/* Mobile Nav Toggle */}
-        <button
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="md:hidden p-2 rounded-full hover:scale-110 transition-transform 
-            bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
-        >
-          {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        {/* Mobile Nav Actions */}
+        <div className="flex md:hidden items-center gap-2">
+          {/* Dark Mode Toggle for Mobile Nav Bar */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300"
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? <Sun size={18} className="text-yellow-500" /> : <Moon size={18} />}
+          </button>
+
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300"
+          >
+            {sidebarOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </header>
 
       {/* Mobile Sidebar */}
       <AnimatePresence>
         {sidebarOpen && (
-          <motion.aside
-            initial={{ x: "100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "100%" }}
-            transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-16 right-0 h-full w-64 
-              bg-white dark:bg-gray-900 text-gray-800 dark:text-white 
-              shadow-lg z-40 px-6 py-8"
-          >
-            <nav className="flex flex-col gap-4 text-lg font-medium">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={`px-3 py-2 rounded-md transition-all ${
-                    isActive(link.to)
-                      ? "bg-gray-200 dark:bg-gray-700"
-                      : "hover:bg-gray-100 dark:hover:bg-gray-800"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-
-              {/* Dark Mode Toggle in Sidebar */}
-              <button
-                onClick={toggleTheme}
-                className="mt-6 flex items-center gap-2 px-3 py-2 rounded-md 
-                  bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white"
-              >
-                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
-                <span>{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-              </button>
-            </nav>
-          </motion.aside>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSidebarOpen(false)}
+              className="fixed inset-0 bg-slate-950/20 dark:bg-black/40 backdrop-blur-sm z-40 md:hidden"
+            />
+            <motion.aside
+              initial={{ x: "100%", opacity: 0.9 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: "100%", opacity: 0.9 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed top-20 right-4 h-[calc(100vh-6rem)] w-64 
+                glass-panel rounded-3xl z-40 px-6 py-8 md:hidden"
+            >
+              <nav className="flex flex-col gap-3 text-base font-medium">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    className={`relative px-4 py-2.5 rounded-xl transition-all ${isActive(link.to)
+                        ? "text-blue-600 dark:text-blue-400 bg-slate-900/[0.04] dark:bg-white/[0.06]"
+                        : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/50 dark:hover:bg-slate-800/50"
+                      }`}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </nav>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </>

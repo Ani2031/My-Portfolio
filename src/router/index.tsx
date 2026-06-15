@@ -2,7 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
-import Skills from "../pages/Skill";
+import Experience from "../pages/Experience";
+import Projects from "../pages/Projects";
 import Header from "../components/Header";
 import { useTheme } from "../context/ThemeContext";
 
@@ -18,10 +19,11 @@ export default function AppRoutes() {
       >
         <Header />
         <Routes>
-          <Route index element={<Home />} />
+           <Route index element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/skills" element={<Skills />} />
+          <Route path="/experience" element={<Experience />} />
         </Routes>
       </div>
     </BrowserRouter>

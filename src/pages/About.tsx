@@ -1,105 +1,329 @@
-import { useTheme } from "../context/ThemeContext";
 import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Award,
+  Code,
+  Database,
+  Layers,
+  Layout,
+  Server,
+} from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
-  const { theme } = useTheme();
+  const skills = [
+    {
+      icon: <Code size={26} />,
+      title: "Frontend Development",
+      desc: "React.js, Next.js, Redux, TypeScript",
+    },
+    {
+      icon: <Layout size={26} />,
+      title: "UI / UX & Styling",
+      desc: "Tailwind CSS, MUI, Bootstrap, Responsive Design",
+    },
+    {
+      icon: <Layers size={26} />,
+      title: "Animations & Components",
+      desc: "Framer Motion, Clean Component Architecture",
+    },
+    {
+      icon: <Server size={26} />,
+      title: "Backend Development",
+      desc: "Node.js, Express.js, REST APIs",
+    },
+    {
+      icon: <Database size={26} />,
+      title: "Database & Performance",
+      desc: "PostgreSQL, Sequelize, Redis",
+    },
+  ];
 
   return (
     <main
-      className={`min-h-screen pt-28 pb-16 px-6 transition-colors duration-300 ${
-        theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-gray-900"
-      }`}
+      className="
+      relative
+      min-h-screen
+      pt-32
+      pb-20
+      px-6
+      overflow-hidden
+      bg-grid-pattern
+      transition-colors
+      duration-500
+      bg-light-bg
+      text-light-text
+      dark:bg-dark-bg
+      dark:text-dark-text
+    "
     >
-      <div className="max-w-5xl mx-auto text-center">
-        {/* Heading */}
-        <motion.h1
-          className="text-4xl md:text-5xl font-extrabold mb-6"
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          About <span className="text-blue-600">Me</span>
-        </motion.h1>
+      {/* Background */}
+      <div className="absolute inset-0 bg-radial-gradient pointer-events-none -z-10" />
 
-        {/* Description */}
-        <motion.p
-          className="text-lg leading-relaxed max-w-3xl mx-auto text-gray-600 dark:text-gray-300"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+      <div className="max-w-5xl mx-auto relative z-10">
+        {/* Title */}
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
         >
-          Hi, I’m <b>Anish Prajapati</b> a passionate frontend developer with a{" "}
-          <b>Bachelor’s degree in Information Technology</b> (CGPA: <b>8.4</b>).
-          <br />
-          <br />
-          My expertise lies in{" "}
-          <b>
-            React.js, Next.js (basic), Redux, TypeScript, Tailwind CSS, MUI,
-            Bootstrap
-          </b>
-          , along with building{" "}
-          <b>
-            responsive designs, smooth animations with Framer Motion, and
-            reusable components
-          </b>
-          .
-          <br />
-          <br />I also have knowledge of <b>Git & GitHub</b> for version control
-          and backend development fundamentals with the <b>MERN stack</b>.
-        </motion.p>
-      </div>
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-3">
+            About{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+              Me
+            </span>
+          </h1>
 
-      {/* Education / Experience Cards */}
-      <div className="max-w-6xl mx-auto mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
-        {[
-          {
-            title: "Education",
-            desc: "Completed BE in Information Technology with a CGPA of 8.4.",
-          },
-          {
-            title: "ImmersionX (Frontend Developer)",
-            desc: "Worked on the company website and CMS frontend, focusing on building clean, responsive, and user-friendly interfaces.",
-          },
-          {
-            title: "Champhunt Inc (Frontend Developer)",
-            desc: "Contributed to the product-based company's website. Majorly worked on frontend development using the MERN stack to deliver scalable and engaging user experiences.",
-          },
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            className={`rounded-2xl p-6 shadow-lg transition ${
-              theme === "dark" ? "bg-gray-800 text-white" : "bg-gray-100"
-            }`}
-            whileHover={{ scale: 1.05 }}
+          <p className="text-slate-500 dark:text-slate-400 max-w-xl mx-auto">
+            Building modern interfaces and creating smooth digital experiences.
+          </p>
+
+          <div className="h-1 w-12 rounded bg-blue-600 mt-5 mx-auto" />
+        </motion.div>
+
+        {/* About Section */}
+        <motion.section
+          className="glass-panel rounded-3xl p-8 md:p-12"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">
+            Who I Am
+          </h2>
+
+          <div className="space-y-5 text-slate-600 dark:text-slate-300 leading-relaxed">
+
+            <p>
+              Hi, I’m{" "}
+              <span className="font-semibold text-slate-900 dark:text-white">
+                Anish Prajapati
+              </span>
+              {" "}- a Full Stack Developer with a Bachelor's degree in Information
+              Technology and experience building modern web applications, internal
+              products, and scalable user experiences.
+            </p>
+
+            <p>
+              My core expertise lies in developing high-quality frontend experiences
+              using
+              <strong>
+                {" "}React.js, TypeScript, Next.js, Redux and modern UI systems
+              </strong>
+              , while maintaining strong attention to performance, usability, and
+              clean architecture.
+            </p>
+
+            <p>
+              Beyond frontend development, I work across the MERN ecosystem and have
+              contributed to
+              <strong>
+                {" "}real-time communication systems, admin dashboards, CMS platforms,
+                SaaS products, CRM workflows, and API-driven applications
+              </strong>
+              .
+            </p>
+
+            <p>
+              I enjoy transforming ideas into polished digital products through
+              scalable architecture, reusable components, backend collaboration,
+              and thoughtful user experiences.
+            </p>
+
+          </div>
+
+          {/* Action Buttons */}
+
+          <div className="flex flex-wrap gap-4 mt-10">
+
+            <Link
+              to="/experience"
+              className="
+        inline-flex
+        items-center
+        gap-2
+        px-8
+        py-3.5
+        rounded-full
+        text-white
+        font-semibold
+        bg-gradient-to-r
+        from-blue-600
+        to-indigo-600
+        hover:scale-[1.02]
+        transition
+      "
+            >
+              View Experience
+            </Link>
+
+            <Link
+              to="/contact"
+              className="
+        inline-flex
+        items-center
+        gap-2
+        px-8
+        py-3.5
+        rounded-full
+        border
+        border-slate-300
+        dark:border-slate-700
+        hover:border-blue-500
+        transition
+      "
+            >
+              Contact Me
+              <ArrowRight size={18} />
+            </Link>
+
+          </div>
+        </motion.section>
+
+        {/* Skills Section */}
+        <section className="mt-24">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
+              Technical Skills
+            </h2>
+
+            <p className="text-slate-500 dark:text-slate-400">
+              Technologies and tools I use to build modern applications.
+            </p>
+
+            <div className="h-1 w-12 rounded bg-blue-600 mt-4 mx-auto" />
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skills.map((skill, i) => (
+              <motion.div
+                key={i}
+                initial={{
+                  opacity: 0,
+                  y: 30,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                whileHover={{
+                  y: -6,
+                }}
+                transition={{
+                  delay: i * 0.08,
+                }}
+                className="
+                  glass-panel
+                  rounded-3xl
+                  p-8
+                  text-center
+                  relative
+                  overflow-hidden
+                  group
+                  border
+                  border-blue-500/20
+                "
+              >
+                <Award
+                  size={18}
+                  className="
+                    absolute
+                    top-4
+                    right-4
+                    text-blue-500
+                  "
+                />
+
+                <div
+                  className="
+                    w-16
+                    h-16
+                    rounded-2xl
+                    mx-auto
+                    mb-6
+                    flex
+                    items-center
+                    justify-center
+                    bg-blue-500/10
+                    text-blue-500
+                    group-hover:scale-110
+                    transition
+                  "
+                >
+                  {skill.icon}
+                </div>
+
+                <h3 className="font-bold text-lg mb-3">
+                  {skill.title}
+                </h3>
+
+                <p className="text-sm text-slate-600 dark:text-slate-300">
+                  {skill.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* CTA */}
+        <motion.section
+          className="
+            mt-28
+            glass-panel
+            rounded-3xl
+            p-12
+            text-center
+            relative
+            overflow-hidden
+          "
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          viewport={{
+            once: true,
+          }}
+        >
+          <div className="absolute left-0 top-0 w-32 h-32 bg-blue-500/10 blur-3xl rounded-full" />
+          <div className="absolute right-0 bottom-0 w-32 h-32 bg-indigo-500/10 blur-3xl rounded-full" />
+
+          <h3 className="text-3xl font-bold mb-4">
+            Let’s Build Something Great
+          </h3>
+
+          <p className="text-slate-500 dark:text-slate-400 max-w-lg mx-auto mb-8">
+            Interested in collaboration or building modern web experiences?
+            Let’s connect.
+          </p>
+
+          <Link
+            to="/contact"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              px-8
+              py-4
+              rounded-full
+              text-white
+              bg-gradient-to-r
+              from-blue-600
+              to-indigo-600
+              hover:scale-[1.03]
+              transition
+            "
           >
-            <h3 className="text-xl font-bold mb-2 text-blue-600">
-              {item.title}
-            </h3>
-            <p className="text-gray-700 dark:text-gray-300">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Call To Action */}
-      <div className="mt-20 text-center">
-        <motion.h3
-          className="text-2xl font-bold mb-4"
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          Let’s Connect
-        </motion.h3>
-        <p className="text-gray-600 dark:text-gray-400 mb-6">
-          I’m always excited to collaborate on new opportunities and projects.
-          Feel free to reach out!
-        </p>
-        <a
-          href="/contact"
-          className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-medium px-8 py-3 rounded-lg shadow-md transition"
-        >
-          Get in Touch
-        </a>
+            Get in Touch
+            <ArrowRight size={18} />
+          </Link>
+        </motion.section>
       </div>
     </main>
   );

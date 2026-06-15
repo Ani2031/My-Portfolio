@@ -2,7 +2,53 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Base style */
-body {
-  @apply font-sans bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text;
+@layer base {
+  body {
+    @apply font-sans bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text antialiased selection:bg-blue-500/30 dark:selection:bg-blue-500/20;
+    overflow-x: hidden;
+  }
+
+  /* Custom thin premium scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 dark:bg-slate-800 rounded-full hover:bg-slate-400 dark:hover:bg-slate-700 transition-colors;
+  }
 }
+
+/* Premium background mesh and grids */
+.bg-grid-pattern {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+}
+
+.dark .bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.03) 1px, transparent 1px);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+}
+
+.dark .bg-radial-gradient {
+  background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+}
+
+/* Blur backdrop card panel styles */
+.glass-panel {
+  @apply bg-white/90 dark:bg-slate-950/40 backdrop-blur-md border border-slate-200/80 dark:border-white/[0.06] shadow-premium dark:shadow-premium-dark;
+}
+
+.glass-panel-hover {
+  @apply hover:border-blue-500/40 dark:hover:border-blue-500/30 hover:shadow-indigo-glow dark:hover:shadow-indigo-glow transition-all duration-300;
+}
+
