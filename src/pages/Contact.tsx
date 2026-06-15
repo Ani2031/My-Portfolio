@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   Mail,
   Linkedin,
@@ -9,12 +8,12 @@ import {
 import { motion } from "framer-motion";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   email: "",
+  //   subject: "",
+  //   message: "",
+  // });
 
   const contactMethods = [
     {
@@ -47,27 +46,27 @@ const Contact = () => {
     },
   ];
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = (
+  //   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  // ) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
 
-    console.log(formData);
+  //   console.log(formData);
 
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-  };
+  //   setFormData({
+  //     name: "",
+  //     email: "",
+  //     subject: "",
+  //     message: "",
+  //   });
+  // };
 
   return (
     <main className="relative min-h-screen pt-32 pb-20 px-6 overflow-hidden bg-grid-pattern bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text">
