@@ -20,95 +20,95 @@ import {
 import { motion } from "framer-motion";
 
 const Home: React.FC = () => {
-  const renderMockup = (type: string) => {
-    switch (type) {
-      case "chat":
-        return (
-          <div className="w-full h-full bg-slate-950/90 dark:bg-slate-950/80 rounded-t-2xl p-4 flex flex-col justify-between border-b border-slate-200/50 dark:border-white/[0.04] overflow-hidden relative group">
-            <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[10px] text-slate-400 font-mono">
-              <div className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                <span>Socket Active</span>
-              </div>
-              <span>#general</span>
-            </div>
-            <div className="flex flex-col gap-2.5 my-3 text-[10px] text-left">
-              <div className="bg-white/10 dark:bg-white/[0.04] rounded-lg p-2 max-w-[80%] border border-white/[0.05] self-start transform transition-transform group-hover:translate-x-1 duration-300">
-                <span className="text-[9px] text-indigo-400 block font-semibold">UserA</span>
-                Is the Socket connection synchronized?
-              </div>
-              <div className="bg-blue-600 rounded-lg p-2 max-w-[80%] self-end text-white text-right transform transition-transform group-hover:-translate-x-1 duration-300">
-                <span className="text-[9px] text-blue-200 block font-semibold">You</span>
-                Yes, sub-10ms latency configured! 🚀
-              </div>
-            </div>
-            <div className="flex gap-1.5 pt-1.5 border-t border-white/[0.06]">
-              <div className="flex-1 bg-white/5 dark:bg-white/[0.02] border border-white/[0.08] rounded-md h-6 px-2 flex items-center text-[9px] text-slate-500">
-                Type a message...
-              </div>
-              <div className="w-6 h-6 rounded-md bg-blue-600 flex items-center justify-center text-white">
-                <MessageSquare size={10} />
-              </div>
-            </div>
-          </div>
-        );
-      case "ecommerce":
-        return (
-          <div className="w-full h-full bg-slate-950/90 dark:bg-slate-950/80 rounded-t-2xl p-4 flex flex-col justify-between border-b border-slate-200/50 dark:border-white/[0.04] overflow-hidden relative group">
-            <div className="flex justify-between items-center pb-2 border-b border-white/[0.06]">
-              <span className="text-[10px] text-slate-400 font-mono">AnishShop</span>
-              <div className="relative p-1 bg-white/10 dark:bg-white/[0.06] rounded-md text-blue-400 group-hover:scale-110 transition-transform">
-                <ShoppingCart size={11} />
-                <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-blue-600 text-[8px] text-white rounded-full flex items-center justify-center font-bold animate-bounce">1</span>
-              </div>
-            </div>
-            <div className="flex gap-3 my-2 items-center bg-white/5 dark:bg-white/[0.02] p-2 rounded-xl border border-white/[0.05]">
-              <div className="w-12 h-12 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-xs font-bold shadow-md shadow-blue-500/10">
-                Watch
-              </div>
-              <div className="text-left">
-                <h4 className="text-[10px] font-bold text-white leading-tight">Smart Watch Pro</h4>
-                <p className="text-[9px] text-emerald-400 font-mono font-bold">$199.00</p>
-              </div>
-            </div>
-            <div className="w-full py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center text-[9px] font-bold shadow-md shadow-blue-500/10 group-hover:brightness-110 transition-all">
-              Proceed to Stripe Checkout
-            </div>
-          </div>
-        );
-      case "theme":
-        return (
-          <div className="w-full h-full rounded-t-2xl p-4 flex flex-col justify-between border-b border-slate-200/50 dark:border-white/[0.04] overflow-hidden relative transition-all duration-700 bg-gradient-to-tr from-slate-100 to-slate-200 dark:from-slate-950 dark:to-slate-900 group">
-            <div className="flex justify-between items-center border-b border-slate-300 dark:border-white/[0.06] pb-2 text-[10px]">
-              <span className="text-slate-700 dark:text-slate-300 font-mono">Theme Engine</span>
-              <span className="px-2 py-0.5 rounded-full text-[8px] bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-slate-300 font-bold uppercase tracking-wider">
-                Dynamic
-              </span>
-            </div>
-            <div className="my-auto flex justify-center items-center gap-6 relative py-2">
-              <div className="w-10 h-10 rounded-full bg-amber-400 shadow-md shadow-amber-400/20 dark:opacity-0 dark:scale-50 transition-all duration-500 flex items-center justify-center text-white">
-                <Sparkles size={16} />
-              </div>
-              <div className="absolute w-10 h-10 rounded-full bg-indigo-900 opacity-0 scale-50 dark:opacity-100 dark:scale-100 transition-all duration-500 flex items-center justify-center text-white border border-indigo-500/30">
-                <Layers size={16} />
-              </div>
-              <div className="text-left text-[10px] text-slate-700 dark:text-slate-300">
-                <p className="font-bold">Active Theme</p>
-                <p className="font-mono text-[9px] text-blue-600 dark:text-blue-400">
-                  light-mode / dark-mode
-                </p>
-              </div>
-            </div>
-            <div className="w-full flex justify-between gap-2">
-              <div className="flex-1 h-3 rounded bg-slate-300 dark:bg-slate-800" />
-              <div className="w-8 h-3 rounded bg-blue-600" />
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
+  // const renderMockup = (type: string) => {
+  //   switch (type) {
+  //     case "chat":
+  //       return (
+  //         <div className="w-full h-full bg-slate-950/90 dark:bg-slate-950/80 rounded-t-2xl p-4 flex flex-col justify-between border-b border-slate-200/50 dark:border-white/[0.04] overflow-hidden relative group">
+  //           <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 text-[10px] text-slate-400 font-mono">
+  //             <div className="flex items-center gap-1.5">
+  //               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+  //               <span>Socket Active</span>
+  //             </div>
+  //             <span>#general</span>
+  //           </div>
+  //           <div className="flex flex-col gap-2.5 my-3 text-[10px] text-left">
+  //             <div className="bg-white/10 dark:bg-white/[0.04] rounded-lg p-2 max-w-[80%] border border-white/[0.05] self-start transform transition-transform group-hover:translate-x-1 duration-300">
+  //               <span className="text-[9px] text-indigo-400 block font-semibold">UserA</span>
+  //               Is the Socket connection synchronized?
+  //             </div>
+  //             <div className="bg-blue-600 rounded-lg p-2 max-w-[80%] self-end text-white text-right transform transition-transform group-hover:-translate-x-1 duration-300">
+  //               <span className="text-[9px] text-blue-200 block font-semibold">You</span>
+  //               Yes, sub-10ms latency configured! 🚀
+  //             </div>
+  //           </div>
+  //           <div className="flex gap-1.5 pt-1.5 border-t border-white/[0.06]">
+  //             <div className="flex-1 bg-white/5 dark:bg-white/[0.02] border border-white/[0.08] rounded-md h-6 px-2 flex items-center text-[9px] text-slate-500">
+  //               Type a message...
+  //             </div>
+  //             <div className="w-6 h-6 rounded-md bg-blue-600 flex items-center justify-center text-white">
+  //               <MessageSquare size={10} />
+  //             </div>
+  //           </div>
+  //         </div>
+  //       );
+  //     case "ecommerce":
+  //       return (
+  //         <div className="w-full h-full bg-slate-950/90 dark:bg-slate-950/80 rounded-t-2xl p-4 flex flex-col justify-between border-b border-slate-200/50 dark:border-white/[0.04] overflow-hidden relative group">
+  //           <div className="flex justify-between items-center pb-2 border-b border-white/[0.06]">
+  //             <span className="text-[10px] text-slate-400 font-mono">AnishShop</span>
+  //             <div className="relative p-1 bg-white/10 dark:bg-white/[0.06] rounded-md text-blue-400 group-hover:scale-110 transition-transform">
+  //               <ShoppingCart size={11} />
+  //               <span className="absolute -top-1 -right-1 w-3.5 h-3.5 bg-blue-600 text-[8px] text-white rounded-full flex items-center justify-center font-bold animate-bounce">1</span>
+  //             </div>
+  //           </div>
+  //           <div className="flex gap-3 my-2 items-center bg-white/5 dark:bg-white/[0.02] p-2 rounded-xl border border-white/[0.05]">
+  //             <div className="w-12 h-12 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white text-xs font-bold shadow-md shadow-blue-500/10">
+  //               Watch
+  //             </div>
+  //             <div className="text-left">
+  //               <h4 className="text-[10px] font-bold text-white leading-tight">Smart Watch Pro</h4>
+  //               <p className="text-[9px] text-emerald-400 font-mono font-bold">$199.00</p>
+  //             </div>
+  //           </div>
+  //           <div className="w-full py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center text-[9px] font-bold shadow-md shadow-blue-500/10 group-hover:brightness-110 transition-all">
+  //             Proceed to Stripe Checkout
+  //           </div>
+  //         </div>
+  //       );
+  //     case "theme":
+  //       return (
+  //         <div className="w-full h-full rounded-t-2xl p-4 flex flex-col justify-between border-b border-slate-200/50 dark:border-white/[0.04] overflow-hidden relative transition-all duration-700 bg-gradient-to-tr from-slate-100 to-slate-200 dark:from-slate-950 dark:to-slate-900 group">
+  //           <div className="flex justify-between items-center border-b border-slate-300 dark:border-white/[0.06] pb-2 text-[10px]">
+  //             <span className="text-slate-700 dark:text-slate-300 font-mono">Theme Engine</span>
+  //             <span className="px-2 py-0.5 rounded-full text-[8px] bg-slate-200 dark:bg-white/10 text-slate-800 dark:text-slate-300 font-bold uppercase tracking-wider">
+  //               Dynamic
+  //             </span>
+  //           </div>
+  //           <div className="my-auto flex justify-center items-center gap-6 relative py-2">
+  //             <div className="w-10 h-10 rounded-full bg-amber-400 shadow-md shadow-amber-400/20 dark:opacity-0 dark:scale-50 transition-all duration-500 flex items-center justify-center text-white">
+  //               <Sparkles size={16} />
+  //             </div>
+  //             <div className="absolute w-10 h-10 rounded-full bg-indigo-900 opacity-0 scale-50 dark:opacity-100 dark:scale-100 transition-all duration-500 flex items-center justify-center text-white border border-indigo-500/30">
+  //               <Layers size={16} />
+  //             </div>
+  //             <div className="text-left text-[10px] text-slate-700 dark:text-slate-300">
+  //               <p className="font-bold">Active Theme</p>
+  //               <p className="font-mono text-[9px] text-blue-600 dark:text-blue-400">
+  //                 light-mode / dark-mode
+  //               </p>
+  //             </div>
+  //           </div>
+  //           <div className="w-full flex justify-between gap-2">
+  //             <div className="flex-1 h-3 rounded bg-slate-300 dark:bg-slate-800" />
+  //             <div className="w-8 h-3 rounded bg-blue-600" />
+  //           </div>
+  //         </div>
+  //       );
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   const skills = [
     { name: "React", icon: <SiReact className="text-sky-500" />, glow: "hover:shadow-sky-500/10 hover:border-sky-500/30" },

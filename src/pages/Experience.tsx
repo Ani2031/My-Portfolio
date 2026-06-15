@@ -2,9 +2,7 @@ import { motion } from "framer-motion";
 import {
   GraduationCap,
   Briefcase,
-  ArrowRight,
 } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const experienceData = [
   {
